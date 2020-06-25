@@ -61,7 +61,7 @@ namespace WebApp
                 config.AddPolicy(Policies.User, Policies.UserPolicy());
             });
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null);
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

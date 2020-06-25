@@ -11,22 +11,19 @@ import { UserRole } from '../models/roles';
 export class AuthGuard implements CanActivate {
 
   userDataSubscription: any;
-  userData = new User();
-
   constructor(private router: Router, private authService: AuthService) {
-    this.userDataSubscription = this.authService.userData.asObservable().subscribe(data => {
-      this.userData = data;
-    });
   }
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-    if (this.userData.role == UserRole.User) {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    const currentUser = this.authService.currentUserValue;
+    if (currentUser) {
+      console.log("logined");
+      // logged in so return true
       return true;
     }
 
+    console.log("not logined");
+    // not logged in so redirect to login page with the return url
     this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
     return false;
   }

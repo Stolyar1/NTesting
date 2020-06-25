@@ -25,13 +25,6 @@ namespace WebApp.Controllers
 
         private Cript wrapper = new Cript("Ключ");
 
-        //Test
-        //private List<User> appUsers = new List<User>
-        //{
-        //    new User {  FirstName = "Admin",  UserName = "admin", Password = "1234", UserType = "Admin" },
-        //    new User {  FirstName = "Ankit",  UserName = "ankit", Password = "1234", UserType = "User" }
-        //};
-
         public LoginController(IConfiguration config, PersonlRepository repository)
         {
             _config = config;

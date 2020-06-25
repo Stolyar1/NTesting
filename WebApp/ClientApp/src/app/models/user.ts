@@ -1,6 +1,6 @@
 export class User {
-  userName: string;
-  firstName: string;
-  isLoggedIn: boolean;
-  role: string;
+  UserName: string;
+  FirstName: string;
+  IsLoggedIn: boolean;
+  Role: string;
 }    

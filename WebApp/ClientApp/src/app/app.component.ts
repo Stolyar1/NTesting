@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { User } from './models/user';
+
 
 @Component({
   selector: 'app-root',
@@ -7,10 +9,10 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'app';
+  currentUser: User;
 
   constructor(private authService: AuthService) {
-    if (localStorage.getItem('authToken')) {
-      this.authService.setUserDetails();
-    }
+    //this.authService.currentUser.subscribe(x => this.currentUser = x);
+
   }
 }

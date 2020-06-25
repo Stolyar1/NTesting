@@ -9,32 +9,30 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 
 import { LoginComponent } from './login/login.component';
-import { UserHomeComponent } from './user-home/user-home.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HttpInterceptorService } from './services/http-interceptor.service';
 import { ErrorInterceptorService } from './services/error-interceptor.service';
-import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { AdminGuard } from './guards/admin.guard';
+import { MatSliderModule } from '@angular/material/slider';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+//import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    LoginComponent,
-    UserHomeComponent,
-    AdminHomeComponent
+    LoginComponent
   ],
   imports: [
+    MatSliderModule,
+    BrowserAnimationsModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
-      { path: 'user-home', component: UserHomeComponent, canActivate: [AuthGuard] },
-      { path: 'admin-home', component: AdminHomeComponent, canActivate: [AdminGuard] }
+      { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+      { path: 'login', component: LoginComponent }
     ])
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },

@@ -10,14 +10,19 @@ import { UserRole } from '../models/roles';
 })
 export class NavMenuComponent {
   isExpanded = false;
-  userDataSubscription: any;
-  userData = new User();
+  userData: User;  
   userRole = UserRole;
 
   constructor(private authService: AuthService) {
-    this.userDataSubscription = this.authService.userData.asObservable().subscribe(data => {
-      this.userData = data;
-    });
+    if (this.authService.currentUserValue) {
+
+      this.authService.currentUser.subscribe(x => this.userData = x);
+      //console.log('NavMenu' + this.userData)
+    }
+    else {
+      this.userData = new User
+      this.userData.IsLoggedIn = false;
+    }
   }
 
   collapse() {

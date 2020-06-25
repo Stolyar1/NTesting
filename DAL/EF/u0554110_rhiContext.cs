@@ -71,7 +71,6 @@ namespace DAL.Context.dbContext
         public virtual DbSet<PtSmuMk> PtSmuMk { get; set; }
         public virtual DbSet<PtSsr> PtSsr { get; set; }
         public virtual DbSet<PtYTank> PtYTank { get; set; }
-        public virtual DbSet<ReshootRt> ReshootRt { get; set; }
         public virtual DbSet<RtAl> RtAl { get; set; }
         public virtual DbSet<RtEmm> RtEmm { get; set; }
         public virtual DbSet<RtEnr> RtEnr { get; set; }
@@ -94,7 +93,6 @@ namespace DAL.Context.dbContext
         public virtual DbSet<RtYLp> RtYLp { get; set; }
         public virtual DbSet<RtYTank> RtYTank { get; set; }
         public virtual DbSet<RtYUg> RtYUg { get; set; }
-        public virtual DbSet<Sizeasme> Sizeasme { get; set; }
         public virtual DbSet<Texk> Texk { get; set; }
         public virtual DbSet<UtParam> UtParam { get; set; }
         public virtual DbSet<UtParam1> UtParam1 { get; set; }
@@ -3347,157 +3345,6 @@ namespace DAL.Context.dbContext
                 entity.Property(e => e.Поле39).HasMaxLength(200);
 
                 entity.Property(e => e.Поле41).HasMaxLength(200);
-            });
-
-            modelBuilder.Entity<ReshootRt>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("RESHOOT_RT", "dbo");
-
-                entity.Property(e => e.ActNo).HasColumnName("Act_No");
-
-                entity.Property(e => e.Chuvstvitelnost).HasMaxLength(255);
-
-                entity.Property(e => e.DataAct).HasColumnType("date");
-
-                entity.Property(e => e.DataAddInBd)
-                    .HasColumnName("Data_AddInBd")
-                    .HasColumnType("date");
-
-                entity.Property(e => e.DataWeld)
-                    .HasColumnName("Data_Weld")
-                    .HasColumnType("date");
-
-                entity.Property(e => e.DefId)
-                    .HasColumnName("def_id")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.DefectoskopistId)
-                    .HasColumnName("Defectoskopist_ID")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Diam).HasMaxLength(255);
-
-                entity.Property(e => e.Drawing).HasMaxLength(255);
-
-                entity.Property(e => e.Element1).HasMaxLength(255);
-
-                entity.Property(e => e.Element2).HasMaxLength(255);
-
-                entity.Property(e => e.FilmSize).HasMaxLength(255);
-
-                entity.Property(e => e.FilmType).HasMaxLength(255);
-
-                entity.Property(e => e.KolSnimkov).HasColumnName("Kol_snimkov");
-
-                entity.Property(e => e.KoordinatiRemonta)
-                    .HasColumnName("Koordinati_Remonta")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Korobka).HasMaxLength(255);
-
-                entity.Property(e => e.Line).HasMaxLength(255);
-
-                entity.Property(e => e.Location).HasMaxLength(255);
-
-                entity.Property(e => e.NdtDate)
-                    .HasColumnName("NDT_Date")
-                    .HasColumnType("date");
-
-                entity.Property(e => e.NoNdt)
-                    .HasColumnName("No_NDT")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.NomerKontrUch)
-                    .HasColumnName("Nomer_kontr_uch")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Operator).HasMaxLength(255);
-
-                entity.Property(e => e.PipelineCategory)
-                    .HasColumnName("Pipeline_Category")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.PwhtBeforeOrAfter)
-                    .HasColumnName("PWHT_before_or_after")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.RadiogramNo)
-                    .HasColumnName("Radiogram_No")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Razbrakovka).HasMaxLength(255);
-
-                entity.Property(e => e.Remarks).HasMaxLength(255);
-
-                entity.Property(e => e.ReportId)
-                    .HasColumnName("Report_ID")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.ReqestDate)
-                    .HasColumnName("Reqest_Date")
-                    .HasColumnType("date");
-
-                entity.Property(e => e.ReqestNo)
-                    .HasColumnName("Reqest_No")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Result).HasMaxLength(255);
-
-                entity.Property(e => e.Rev).HasMaxLength(50);
-
-                entity.Property(e => e.Sheet).HasMaxLength(50);
-
-                entity.Property(e => e.TimePrint)
-                    .HasColumnName("Time_Print")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.Tolsh).HasMaxLength(255);
-
-                entity.Property(e => e.TypeOfControlNdt)
-                    .HasColumnName("Type_of_control_NDT")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.TypeOfWelds)
-                    .HasColumnName("Type_of_welds")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.WeldId)
-                    .HasColumnName("WeldID")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.WeldSumm).HasMaxLength(300);
-
-                entity.Property(e => e.Welder1Id)
-                    .HasColumnName("Welder1_ID")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Welder2Id)
-                    .HasColumnName("Welder2_ID")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Welder3Id)
-                    .HasColumnName("Welder3_ID")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Welder4Id)
-                    .HasColumnName("Welder4_ID")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.WeldingProcess)
-                    .HasColumnName("Welding_Process")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Zona).HasMaxLength(255);
-
-                entity.Property(e => e.Код).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Поле33).HasMaxLength(255);
-
-                entity.Property(e => e.Поле34).HasMaxLength(255);
-
-                entity.Property(e => e.Поле36).HasMaxLength(255);
             });
 
             modelBuilder.Entity<RtAl>(entity =>
@@ -6898,69 +6745,6 @@ namespace DAL.Context.dbContext
                 entity.Property(e => e.Поле34).HasMaxLength(255);
 
                 entity.Property(e => e.Поле36).HasMaxLength(255);
-            });
-
-            modelBuilder.Entity<Sizeasme>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("SIZEASME", "dbo");
-
-                entity.Property(e => e.DiamIn).HasColumnName("Diam_in");
-
-                entity.Property(e => e.DiamOff).HasColumnName("Diam_Off");
-
-                entity.Property(e => e.NominalSize)
-                    .HasColumnName("Nominal_Size")
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Sch10).HasColumnName("SCH10");
-
-                entity.Property(e => e.Sch100).HasColumnName("SCH100");
-
-                entity.Property(e => e.Sch120).HasColumnName("SCH120");
-
-                entity.Property(e => e.Sch140).HasColumnName("SCH140");
-
-                entity.Property(e => e.Sch160).HasColumnName("SCH160");
-
-                entity.Property(e => e.Sch20).HasColumnName("SCH20");
-
-                entity.Property(e => e.Sch30).HasColumnName("SCH30");
-
-                entity.Property(e => e.Sch40).HasColumnName("SCH40");
-
-                entity.Property(e => e.Sch60).HasColumnName("SCH60");
-
-                entity.Property(e => e.Sch80).HasColumnName("SCH80");
-
-                entity.Property(e => e.Std).HasColumnName("STD");
-
-                entity.Property(e => e.Xs).HasColumnName("XS");
-
-                entity.Property(e => e.Xxs).HasColumnName("XXS");
-
-                entity.Property(e => e._0562).HasColumnName("0,562");
-
-                entity.Property(e => e._0625).HasColumnName("0,625");
-
-                entity.Property(e => e._0688).HasColumnName("0,688");
-
-                entity.Property(e => e._0812).HasColumnName("0,812");
-
-                entity.Property(e => e._0844).HasColumnName("0,844");
-
-                entity.Property(e => e._0938).HasColumnName("0,938");
-
-                entity.Property(e => e._1000).HasColumnName("1,000");
-
-                entity.Property(e => e._10s).HasColumnName("10S");
-
-                entity.Property(e => e._40s).HasColumnName("40S");
-
-                entity.Property(e => e._5s).HasColumnName("5S");
-
-                entity.Property(e => e._80s).HasColumnName("80S");
             });
 
             modelBuilder.Entity<Texk>(entity =>
